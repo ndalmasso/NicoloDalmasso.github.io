@@ -3,8 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nicolò Dalmasso</title>
+  <title>Nicolò Dalmasso — Data Scientist & Astrophysicist</title>
+
+  <!-- ── SEO / SOCIAL METADATA ──────────────────────────────────────────
+       NOTE: update the absolute URLs below if your site is not served
+       from https://ndalmasso.github.io/ (e.g. a custom domain). Open
+       Graph / Twitter images MUST be absolute URLs to render in link
+       previews on LinkedIn, Slack, iMessage, etc. -->
+  <meta name="description" content="Nicolò Dalmasso — Data Scientist and Astrophysicist based in Melbourne. Statistical modelling, machine learning, and data engineering, with a background in galaxy clustering and JWST research." />
+  <meta name="author" content="Nicolò Dalmasso" />
+  <meta name="theme-color" content="#16120e" />
+  <link rel="canonical" href="https://ndalmasso.github.io/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nicolò Dalmasso — Data Scientist & Astrophysicist" />
+  <meta property="og:description" content="Statistical modelling, machine learning, and data engineering, with a background in galaxy clustering and JWST research." />
+  <meta property="og:url" content="https://ndalmasso.github.io/" />
+  <meta property="og:image" content="https://ndalmasso.github.io/images/ND_pic.jpg" />
+  <meta property="og:site_name" content="Nicolò Dalmasso" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nicolò Dalmasso — Data Scientist & Astrophysicist" />
+  <meta name="twitter:description" content="Statistical modelling, machine learning, and data engineering, with a background in galaxy clustering and JWST research." />
+  <meta name="twitter:image" content="https://ndalmasso.github.io/images/ND_pic.jpg" />
+
+  <!-- Self-contained SVG favicon (no external file needed) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316120e'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23d67134' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E" />
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nicolò Dalmasso",
+    "jobTitle": "Data Scientist",
+    "url": "https://ndalmasso.github.io/",
+    "image": "https://ndalmasso.github.io/images/ND_pic.jpg",
+    "address": { "@type": "PostalAddress", "addressLocality": "Melbourne", "addressCountry": "AU" },
+    "sameAs": [
+      "https://github.com/ndalmasso",
+      "https://www.linkedin.com/in/nicolo-dalmasso/",
+      "https://scholar.google.com/citations?user=N9wrRnQAAAAJ&hl=en"
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,7 +64,7 @@
       --bg:          #16120e;
       --bg2:         #1c1710;
       --sand:        #e8dcc8;
-      --sand-dim:    rgba(232,220,200,0.42);
+      --sand-dim:    rgba(232,220,200,0.55);
       --sand-faint:  rgba(232,220,200,0.12);
       --rust:        #d67134;
       --rust-dim:    rgba(214, 113, 52, 0.5);
@@ -301,9 +346,8 @@
     .bubble:hover, .bubble:active { background:var(--bg2); }
     .bubble::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--rust); transform:scaleX(0); transition:transform .4s cubic-bezier(.16,1,.3,1); }
     .bubble:hover::after { transform:scaleX(1); }
-    .b-thumb-ph { width:100%; background:var(--charcoal); margin-bottom:1.5rem; display:flex; align-items:center; justify-content:center; font-size:.7rem; color:var(--sand-dim); text-transform:uppercase; letter-spacing:.1em; border-radius:2px; overflow:hidden; transition: background 0.4s ease; }
-    .b-thumb-ph:not(:has(img)) { aspect-ratio:16/9; }
-    .b-thumb-ph img { width:100%; height:auto; display:block; }
+    .b-thumb-ph { width:100%; aspect-ratio:16/9; background:var(--charcoal); margin-bottom:1.5rem; display:flex; align-items:center; justify-content:center; font-size:.7rem; color:var(--sand-dim); text-transform:uppercase; letter-spacing:.1em; border-radius:2px; overflow:hidden; transition: background 0.4s ease; }
+    .b-thumb-ph img { width:100%; height:100%; object-fit:cover; display:block; }
     .b-title { font-family:var(--font-s); font-size:1.4rem; color:var(--sand); margin-bottom:.4rem; }
     .b-year { font-size:.8rem; color:var(--sand-dim); }
 
@@ -341,6 +385,13 @@
     .reveal { opacity:0; transform:translateY(30px); transition:all .8s cubic-bezier(.16,1,.3,1); }
     .reveal.in { opacity:1; transform:none; }
     @keyframes up { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:none} }
+
+    /* Respect reduced-motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+      .reveal { opacity:1; transform:none; }
+      .hero-eyebrow, .hero-name, .hero-photo-wrap { opacity:1; animation:none; }
+    }
 
     /* MOBILE */
     @media (max-width:900px) {
@@ -424,6 +475,9 @@
     <div id="formSuccess" style="display:none;text-align:center;padding-top:1rem;color:var(--rust);">
       Thanks for reaching out — I'll be in touch.
     </div>
+    <div id="formError" style="display:none;text-align:center;padding-top:1rem;color:var(--rust);">
+      Something went wrong — please email me directly instead.
+    </div>
   </div>
 </div>
 
@@ -436,7 +490,7 @@
         <h1 class="hero-name">Nicolò <span>Dalmasso</span></h1>
       </div>
       <div class="hero-photo-wrap">
-        <div class="hero-photo"><img src="images/ND_pic.jpg" alt="Nicolò Dalmasso"></div>
+        <div class="hero-photo"><img src="images/ND_pic.jpg" alt="Portrait of Nicolò Dalmasso" fetchpriority="high" decoding="async"></div>
       </div>
     </div>
   </div>
@@ -451,7 +505,7 @@
         <p class="about-location">Melbourne, Australia</p>
         <div class="about-stat"><span class="about-stat-num">7</span><span class="about-stat-label">Peer-reviewed publications</span></div>
         <div class="about-stat"><span class="about-stat-num">5</span><span class="about-stat-label">First-author papers</span></div>
-        <div class="about-stat"><span class="about-stat-num">4+</span><span class="about-stat-label">Quantitative research</span></div>
+        <div class="about-stat"><span class="about-stat-num">4+</span><span class="about-stat-label">Years of quantitative research</span></div>
       </div>
       <div class="about-right reveal">
         <!-- <p>Astrophysicist turned data scientist, with a background in <strong>galaxy clustering</strong> and <strong>large-scale statistical modelling</strong>. I spent my PhD mapping the connection between massive galaxies and dark matter halos, then decided the Universe could wait and brought those skills somewhere with a shorter feedback loop.</p>
@@ -461,7 +515,7 @@
         <p>I’m not an overthinker, but I do think a lot.<br><strong>Bold and bald by choice.</strong></p>
         <p>I’m into <strong>martial arts</strong>, occasional <strong>bouldering</strong>, solo travelling, camping, hiking, and disappearing <strong>off-grid</strong> whenever possible.</p>
         <p>I cook a lot, especially <strong>questionable flavour combinations</strong> that somehow work. <strong>Bread, focaccia, and pizza</strong> are basically personality traits at this point.</p>
-        <p>My long-term goal is to vanish into a <strong>wooden hut near a frozen lake</strong> with a sauna and <strong>no Wi-Fi</strong>.</p> 
+        <p>My long-term goal is to vanish into a <strong>wooden hut near a frozen lake</strong> with a sauna and <strong>no Wi-Fi</strong>.</p>
         <div class="tags">
           <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Bayesian Inference</span><span class="tag">MCMC</span><span class="tag">Statistical Modeling</span><span class="tag">Machine Learning</span><span class="tag">ETL Pipelines</span><span class="tag">Data Visualization</span><span class="tag">LLM Evaluation</span><span class="tag">Prompt Engineering</span>
         </div>
@@ -564,7 +618,7 @@
   </div>
 </section>
 
-<footer><p>© 2025 Nicolò Dalmasso</p></footer>
+<footer><p>© <span id="footerYear">2025</span> Nicolò Dalmasso</p></footer>
 
 <script>
 /* ════════════════════════════════════════════════════════════════════
@@ -632,6 +686,10 @@ const obs = new IntersectionObserver(
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 
+/* ── Footer year ── */
+document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+
 /* ════════════════════════════════════════════════════════════════════
    § 5  LINKS
    ════════════════════════════════════════════════════════════════════ */
@@ -652,8 +710,8 @@ const links = {
   p6: atob('aHR0cHM6Ly9hY2FkZW1pYy5vdXAuY29tL21ucmFzL2FydGljbGUvNTQ2LzIvc3RhZzAwMS84NDE0MDUy'),
   p7: atob('aHR0cHM6Ly9hY2FkZW1pYy5vdXAuY29tL21ucmFzL2FydGljbGUvNTQ0LzIvMTkxNS84MzAwODA4')
 };
-function goLink(k)      { window.open(links[k], '_blank'); }
-function openLink(e, k) { e.stopPropagation(); window.open(links[k], '_blank'); }
+function goLink(k)      { window.open(links[k], '_blank', 'noopener'); }
+function openLink(e, k) { e.stopPropagation(); window.open(links[k], '_blank', 'noopener'); }
 
 
 /* ════════════════════════════════════════════════════════════════════
@@ -771,8 +829,8 @@ const projects = [
       <p>For health-focused digital platforms (think AI scribing, weight management, digital GP services), the implication is direct: means-tested subsidies and proactive cost communication are retention tools, not just nice-to-haves.</p>
 
       <div class="pm-links">
-        <a href="https://github.com/ndalmasso/echo" target="_blank">GitHub Repository →</a>
-        <a href="https://zenodo.org/records/18991112" target="_blank">Read the Report →</a>
+        <a href="https://github.com/ndalmasso/echo" target="_blank" rel="noopener">GitHub Repository →</a>
+        <a href="https://zenodo.org/records/18991112" target="_blank" rel="noopener">Read the Report →</a>
       </div>`
   },
 
@@ -870,7 +928,7 @@ const projects = [
     thumb:   'images/niriss_beams_example_rev1.png',
     visible: true,
     content: `
-      <p>· What does it take to build a spectroscopic catalogue from scratch?<br>· How do you extract reliable redshifts from a crowded, contaminated field?<br><br>These questions sat at the heart of this project, led by <a href="https://orcid.org/0000-0003-3108-0624" target="_blank" style="color:var(--rust);">Peter J. Watson</a> and carried out within the <strong>GLASS (Grism Lens-Amplified Survey from Space)</strong> collaboration, of which I am a member.<br>The goal: build the <strong>first ever NIRISS spectroscopic redshift catalogue</strong> for the Abell 2744 cluster field, using data from the <strong><a href="https://archive.stsci.edu/hlsp/glass-jwst" target="_blank" style="color:var(--rust);">GLASS-JWST Early Release Science (ERS)</a></strong> programme.</p>
+      <p>· What does it take to build a spectroscopic catalogue from scratch?<br>· How do you extract reliable redshifts from a crowded, contaminated field?<br><br>These questions sat at the heart of this project, led by <a href="https://orcid.org/0000-0003-3108-0624" target="_blank" rel="noopener" style="color:var(--rust);">Peter J. Watson</a> and carried out within the <strong>GLASS (Grism Lens-Amplified Survey from Space)</strong> collaboration, of which I am a member.<br>The goal: build the <strong>first ever NIRISS spectroscopic redshift catalogue</strong> for the Abell 2744 cluster field, using data from the <strong><a href="https://archive.stsci.edu/hlsp/glass-jwst" target="_blank" rel="noopener" style="color:var(--rust);">GLASS-JWST Early Release Science (ERS)</a></strong> programme.</p>
       <div class="pm-img"><img src="images/pointings_rev1.png"></div>
       <p class="pm-caption">All JWST spectroscopic observations covering the Abell 2744 field, with the NIRISS footprint shown as a solid line.</p>
       <h3>Pandora's Cluster</h3>
@@ -900,7 +958,7 @@ const projects = [
           · How do you confirm a galaxy at the edge of the observable Universe?<br>
           · What does light from half a billion years after the Big Bang even look like?<br><br>
 
-          This is a co-author project led by the brilliant <a href="https://www.linkedin.com/in/kit-boyett-80b424198/" target="_blank" style="color:var(--rust);">Dr. Kit Boyett</a>,
+          This is a co-author project led by the brilliant <a href="https://www.linkedin.com/in/kit-boyett-80b424198/" target="_blank" rel="noopener" style="color:var(--rust);">Dr. Kit Boyett</a>,
           carried out within the <strong>GLASS (Grism Lens-Amplified Survey from Space)</strong> collaboration,
           and published in <strong>Nature Astronomy</strong>, the most prestigious journal in the field.
           The target: a rare, massive, interacting galaxy at <strong>z = 9.3127</strong>,
@@ -1094,14 +1152,15 @@ const visibleProjects = projects.map((p, i) => ({ ...p, idx: i })).filter(p => p
 
 visibleProjects.forEach(p => {
   const thumbHtml = p.thumb
-    ? `<div class="b-thumb-ph"><img src="${p.thumb}"></div>`
+    ? `<div class="b-thumb-ph"><img src="${p.thumb}" alt="${p.title}" loading="lazy" decoding="async"></div>`
     : `<div class="b-thumb-ph"></div>`;
   const div = document.createElement('div');
   div.className = 'bubble';
   div.setAttribute('role', 'button');
   div.setAttribute('tabindex', '0');
+  div.setAttribute('aria-label', `Open project: ${p.title}`);
   div.onclick = () => openProj(p.idx);
-  div.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') openProj(p.idx); };
+  div.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProj(p.idx); } };
   div.innerHTML = `${thumbHtml}<div class="b-tag">${p.tag}</div><div class="b-title">${p.title}</div>${p.year ? `<div class="b-year">${p.year}</div>` : ''}`;
   bubblesEl.appendChild(div);
 });
@@ -1131,7 +1190,14 @@ function renderProj() {
   document.getElementById('projModalTag').textContent   = p.tag;
   document.getElementById('projModalTitle').textContent = p.title;
   document.getElementById('projModalYear').textContent  = p.year;
-  document.getElementById('projModalContent').innerHTML = p.content;
+  const contentEl = document.getElementById('projModalContent');
+  contentEl.innerHTML = p.content;
+  // Defer offscreen modal images + give them accessible alt text
+  contentEl.querySelectorAll('img').forEach(im => {
+    im.loading = 'lazy';
+    im.decoding = 'async';
+    if (!im.alt) im.alt = `${p.title} — figure`;
+  });
   document.getElementById('projPrev').disabled = (currentVisibleIdx === 0);
   document.getElementById('projNext').disabled = (currentVisibleIdx === visibleProjects.length - 1);
   document.getElementById('projModal').scrollTop = 0;
@@ -1221,6 +1287,8 @@ function closeModal() { document.getElementById('contactModal').classList.remove
 
 async function handleSubmit(e) {
   e.preventDefault();
+  const errEl = document.getElementById('formError');
+  errEl.style.display = 'none';
   try {
     const res = await fetch(e.target.action, {
       method: 'POST',
@@ -1230,8 +1298,12 @@ async function handleSubmit(e) {
     if (res.ok) {
       e.target.style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      errEl.style.display = 'block';
     }
-  } catch { alert('Error sending message.'); }
+  } catch {
+    errEl.style.display = 'block';
+  }
 }
 </script>
 
